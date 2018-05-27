@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import *
 
 class User(models.Model):
     name = models.CharField(max_length=70, db_index=True, unique=True)
@@ -9,7 +9,7 @@ class User(models.Model):
     STATUS_LOCKED = 'LOCKED'
     STATUS = [STATUS_LOCKED, STATUS_NORMAL]
 
-    status = models.CharField(max_length=70)
+    status = models.CharField(max_length=70, default=STATUS_NORMAL)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -41,14 +41,14 @@ class Comment(models.Model):
 
 
 class Admin(models.Model):
-    name = models.CharField(max_length=70)
+    name = models.CharField(max_length=70,validators=[EmailValidator])
     password = models.CharField(max_length=70)
 
     STATUS_NORMAL = 'NORMAL'
     STATUS_LOCKED = 'LOCKED'
     STATUS = [STATUS_LOCKED, STATUS_NORMAL]
 
-    status = models.CharField(max_length=70)
+    status = models.CharField(max_length=70,default=STATUS_NORMAL)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

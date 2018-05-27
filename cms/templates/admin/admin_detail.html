@@ -1,0 +1,30 @@
+{% extends "admin/backend_layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="sub-header">个人信息</h2>
+    <form action="{{ url('admin_update',args=[admin.id])}}" method="post">
+        <div class="form-group">
+            <label for="exampleInputEmail1">ID</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="name" name="id"
+                   value="{{admin.id}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">姓名</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="name"
+                   value="{{admin.name}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                   name="password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">创建时间</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="created_at"
+                   value="{{admin.created_at|date_format}}">
+        </div>
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}
