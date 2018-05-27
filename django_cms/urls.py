@@ -22,6 +22,7 @@ urlpatterns = [
         path('/admins', admin.index_or_create, name='admin_index_or_create'),
         path('/admins/<int:admin_id>', admin.detail, name='admin_detail'),
         path('/admins/<int:admin_id>/update', admin.update, name='admin_update'),
-        path('/admin_create', admin.get_create, name='admin_get_create')
+        path('/admin_create', admin.get_create, name='admin_get_create'),
+        path('/logout',admin.logout,name='admin_logout')
     ]))
 ]

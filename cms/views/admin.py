@@ -159,4 +159,5 @@ def logout(request: HttpRequest):
     :param request:
     :return:
     """
-    pass
+    logout_admin(request)
+    return redirect('/admin/login')

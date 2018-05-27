@@ -54,7 +54,7 @@ TEMPLATES = [
         'APP_DIRS': False,
         'DIRS': ['%s/templates/' % APP_DIR, ],
         'OPTIONS': {
-            'environment': 'cms.jinja2.environment'
+            'environment': 'cms.jinja2.environment',
         }
     },
 ]

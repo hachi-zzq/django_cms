@@ -2,13 +2,14 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import reverse
 from jinja2 import Environment
 from datetime import datetime
-
+from cms.middlewares import Auth
 
 def environment(**options):
     env = Environment(**options)
     env.globals.update({
         'static': staticfiles_storage.url,
         'url': reverse,
+        'auth': Auth
     })
     env.filters['date_format'] = date_format
     return env
@@ -21,3 +22,4 @@ def date_format(date_value: datetime):
     :return:
     """
     return date_value.strftime('%Y-%m-%d %H:%M:%S')
+

@@ -1,5 +1,4 @@
 from django.http import HttpRequest
-
 USER_LOGIN_SESSION_KEY = 'user_id'
 
 
